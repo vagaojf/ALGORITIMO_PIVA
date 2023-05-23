@@ -1,13 +1,22 @@
-from random import randint
-dado = [0]*7
-estatistica = [0]*7
+def somadigitos(number):
+    soma = 0
+    for x in number:
+        soma += int(x)
+    return soma
 
-for i in range(6000):
-    x = randint(1,6)
-    dado[x] = dado[x] + 1
+def multdigitos(number):
+    multipl = 1
+    for x in number:
+        multipl *= int(x)
+    return multipl
 
-for i in range(1, 7):
-    estatistica[i] = dado[i] / 6000
+ra = input("Digite um número positivo: ")
 
-for i in range(1, 7):
-    print(f'lado {i} foi sorteado {dado[i]} = {estatistica[i]:.2%}')
+# Verificar se o número é positivo
+if int(ra) > 0:
+    soma = somadigitos(ra)
+    multiplicacao = multdigitos(ra)
+    print("Soma dos dígitos:", soma)
+    print("Multiplicação dos dígitos:", multiplicacao)
+else:
+    print("Número inválido. Digite um número positivo.")
